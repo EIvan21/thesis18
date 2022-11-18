@@ -33,6 +33,7 @@ explore: inventory {
     sql_on: ${inventory.product_id} = ${products.product_id} ;;
     relationship: many_to_one
   }
+
 }
 
 # To create more sophisticated Explores that involve multiple views, you can use the join parameter.
@@ -51,6 +52,12 @@ explore: sales {
   join: products {
     type: left_outer
     sql_on: ${sales.product_id} = ${products.product_id} ;;
+    relationship: many_to_one
+  }
+
+  join: inventory {
+    type: left_outer
+    sql_on: ${products.product_id}=${inventory.product_id} ;;
     relationship: many_to_one
   }
 }
