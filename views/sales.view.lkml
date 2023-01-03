@@ -30,6 +30,14 @@ view: sales {
     datatype: date
     sql: ${TABLE}.Date ;;
   }
+  dimension_group: start {
+
+    type: time
+    timeframes: [time, hour, hour_of_day, day_of_week, day_of_year, date, week, month, month_num, month_name, quarter, day_of_month, year, raw, week_of_year]
+    datatype: date
+    sql: ${TABLE}.Date ;;
+
+  }
 
   # Here's what a typical dimension looks like in LookML.
   # A dimension is a groupable field that can be used to filter query results.
